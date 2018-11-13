@@ -1,5 +1,7 @@
 <h1>Hello, Rails!</h1>
 
+<p>Your Account: <%= current_user.email %></p>
+
 
 <%= link_to 'New article', new_article_path %>
 <table>
@@ -20,3 +22,7 @@
     </tr>
   <% end %>
 </table>
+
+<% if user_signed_in? %>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+<% end %>
