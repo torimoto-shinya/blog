@@ -1,24 +1,24 @@
-# README
+# Blog Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## URL
+https://railsguides.jp/getting_started.html
 
-Things you may want to cover:
+## 前提条件
+* 以下条件にて開発
+    * Ruby version: 2.3.4
+* 以下をインストール済み
+    * git
+    * bundler
 
-* Ruby version
+## インストール
+```
+$ git clone git@github.com:torimoto-shinya/blog.git
+$ cd blog/
+$ bundle install --path vendor/bundle
+```
 
-* System dependencies
+## 動作確認
+```
+$ bin/rails server
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
