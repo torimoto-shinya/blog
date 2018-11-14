@@ -15,6 +15,7 @@ https://railsguides.jp/getting_started.html
 $ git clone git@github.com:torimoto-shinya/blog.git
 $ cd blog/
 $ bundle install --path vendor/bundle
+$ bin/rails db:migrate
 ```
 
 ## 動作確認
