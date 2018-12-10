@@ -1,0 +1,21 @@
+<header class="">
+  <nav class="navbar navbar-expand-md navbar-light">
+    <h1><a href="" class="navvar-brand">Blog Application</a></h1>
+        
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="menu" class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <% if user_signed_in? %>
+            <%= link_to('ログアウト', destroy_user_session_path, :method => :delete) %>
+          <% else %>
+            <%= link_to('ログイン', new_user_session_path) %>
+          <% end %>
+        </li>
+      </ul>
+    </div><!--menu-->
+  </nav><!--nav-->
+</header>
