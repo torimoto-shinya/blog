@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  
   def index
     @articles = Article.all
   end
@@ -8,12 +10,14 @@ class ArticlesController < ApplicationController
   end
   
   def new
+    @user    = current_user
     @article = Article.new
   end
   
   def create
     @article = Article.new(params.require(:article).permit(:title, :text))
-  
+    @article.user = current_user
+    
     if @article.save
       redirect_to @article
     else
