@@ -1,24 +1,37 @@
 <%= render 'shared/header' %>
-<p>
-  <strong>Auther:</strong>
-  <%= @article.user.email %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <h2><%= @article.title %></h2>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
- 
-<h2>Comments</h2>
-<%= render @article.comments %>
- 
-<h2>Add a comment:</h2>
-<%= render "comments/form" %>
- 
-<%= link_to 'Edit Article', edit_article_path(@article) %> |
-<%= link_to 'Back to Articles', articles_path %>
+      <div class="py-3">
+        <p style="white-space: pre-line;">
+          <%= @article.text %>
+        </p>
+      </div>
+      <div class="py-3 text-right">
+        <%= link_to '編集', edit_article_path(@article) , class: "btn btn-light" %>
+        <%= link_to '削除', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger" %>
+      </div>
+      <h3>コメント</h3>
+      <%if @article.comments.length == 0 %>
+        <p>コメントはありません</p>
+      <% else %>
+        <%= render @article.comments %>
+      <% end %>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="card card-body bg-light p-3">
+            <h3>コメント書き込み</h3>
+            <%= render "comments/form" %>
+         
+          </div>
+        </div>
+      </div>
+      <div class="py-3">
+        <%= link_to '記事一覧へ戻る', articles_path %>
+      </div>
+    </div>
+  </div>
+</div>
+
