@@ -1,15 +1,17 @@
+<!-- ToDo: コメントが無い場合 -->
 <p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
+  <strong>コメント者: </strong>
+  <%= comment.commenter_name %>
 </p>
  
 <p>
-  <strong>Comment:</strong>
   <%= comment.body %>
 </p>
 
 <p>
-  <%= link_to 'Destroy Comment', [comment.article, comment],
+  <%= link_to 'コメントを削除', [comment.article, comment],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
 </p>
+
+<hr>

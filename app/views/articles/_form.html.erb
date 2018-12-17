@@ -1,4 +1,3 @@
-
 <%= form_with model: @article, local: true do |form| %>
   <% if @article.errors.any? %>
   <div id="error_explanation">
@@ -12,16 +11,21 @@
   </div>
   <% end %>
   <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.label "タイトル" %><br>
+    <%= form.text_field :title, class: "form-control" %>
   </p>
  
   <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
+    <%= form.label "本文" %><br>
+    <%= form.text_area :text, class: "form-control" %>
   </p>
- 
-  <p>
-    <%= form.submit %>
-  </p>
+  
+  <div class="text-right">
+    <%= link_to 'キャンセル', articles_path, class: "btn btn-light" %>
+    <span>
+      <%= form.submit(@article.new_record? ? "作成" : "更新", class: "btn btn-primary") %>
+    </span> 
+    
+  </div>
 <% end %>
+
